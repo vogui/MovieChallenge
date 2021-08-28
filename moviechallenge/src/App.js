@@ -1,15 +1,16 @@
-import Login from "./Auth0/Login";
-import Logout from "./Auth0/Logout";
-import NavBar from "./NavBar/NavBar";
+import { Route, Switch } from "react-router-dom";
+import NavBar from "./navBar/NavBar";
+import Home from "./home/Home";
+import Login from "./login/Login";
 
 function App() {
   return (
     <div>
-      <header>
-        <NavBar />
-        <Login />
-        <Logout />
-      </header>
+      <NavBar />
+      <Switch>
+        <Route path="/" component={Login} />
+        <Route path="/home" component={Home} />
+      </Switch>
     </div>
   );
 }
