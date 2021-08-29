@@ -3,7 +3,7 @@ import { Div  } from "./styles";
 import {Puff} from 'react-loading-icons'
 import { colors } from "../helpers/styledHelpers";
 
-export default () => {
+ const LoadingModal = () => {
   return (
     <>
       <Div>
@@ -12,3 +12,4 @@ export default () => {
     </>
   );
 };
+export default LoadingModal

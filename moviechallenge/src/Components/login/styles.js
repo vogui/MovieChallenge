@@ -1,13 +1,15 @@
 import styled from "styled-components";
+import { colors } from "../helpers/styledHelpers";
 
 export const Div = styled.div`
   margin-top: 10%;
-  width: 50%;
+  width: 30%;
   height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f0eded;
+  background: ${colors.white};
+  opacity:0.9;
   border: 10px groove;
   border-radius: 10px;
 `;

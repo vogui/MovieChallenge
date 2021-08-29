@@ -12,9 +12,15 @@ export const Button = styled.button`
     props.type === "logout"
       ? `background: transparent;
        color: ${colors.white};
-       border: 2px solid ${colors.white}`
+       border: 2px solid ${colors.white};
+       &:active{
+        background: #4489F2;`
       : `background: transparent;
        color: ${colors.black};
-       border: 2px solid ${colors.black}
+       border: 2px solid ${colors.white};
+       &:active{
+        background: #4489F2;
     `}
+  
+  }
 `;

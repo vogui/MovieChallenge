@@ -5,7 +5,7 @@ import { Div, H1 } from "./styles";
 const Login = () => {
   return (
     <Div>
-      <H1>Login</H1>
+      <H1>Bienvenido a <strong>Ve tu pelicula</strong></H1>
       <LoginButton />
     </Div>
   );

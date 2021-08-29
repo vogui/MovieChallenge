@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import Logout from "../auth0/LogoutButton";
 import { Nav, ProfileContainer, Title, TitleContainer, Email } from "./styles";
 
 const NavBar = (props) => {
-  const { user, isLoading } = useAuth0();
+  const { user } = useAuth0();
   return (
     <Nav>
       {props.login ? (

@@ -8,6 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
+
     <Auth0Provider
       domain="vetupelicula.us.auth0.com"
       clientId="1c0zvt4DOtpb0XcWWbrl11YP3RfL0paQ"
