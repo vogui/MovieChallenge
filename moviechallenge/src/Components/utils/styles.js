@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { colors, mobile } from "./styledHelpers";
+import { colors, mobile} from "./styledHelpers";
 
 export const Select = styled.select`
-  width: 20%;
+  width: 30%;
   height: 50px;
   border: 3px solid ${colors.black};
   margin: 0;

@@ -14,7 +14,7 @@ const Drops = (props) => {
           props.handleChange(e.nativeEvent.target[index].text, props.movies, props.year);
         }}
       >
-        <Option style={{backgroundColor:colors.turquoise}}value={props.value}>
+        <Option disabled selected style={{backgroundColor:colors.turquoise}} value={props.value}>
           {props.value !== "" ? props.value : texts.Seleccione}
         </Option>
         {props.menu.map((m) => (

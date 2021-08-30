@@ -17,7 +17,7 @@ export const Card = styled.div`
   flex-direction:column;
   align-items: center;
   justify-content:center;
-  width:20%;
+  width:300px;
   border: 6px solid ${colors.black};
   border-radius:6px;
   margin:3rem;
@@ -25,7 +25,7 @@ export const Card = styled.div`
   cursor:pointer;
   @media (max-width: ${mobile}) {
     margin:5px;
-    width:70%;
+    width:200px;
     height:250px;
   }
 `;

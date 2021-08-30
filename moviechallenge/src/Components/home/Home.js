@@ -10,9 +10,8 @@ const Home = () => {
   const [moviesArray, setMoviesArray] = useState([]);
   const [order, setOrder] = useState("");
   const [filter, setFilter] = useState("");
-  //const [name, setName] = useState("");
   const [moviesShow, setMoviesShow] = useState([]);
-  const [year, setYear] = useState([]);
+
 
   const getMovies = () => {
     new Promise((res) => setMoviesArray(entries)).catch(() =>
@@ -34,16 +33,16 @@ const Home = () => {
     setVariable(variable);
   };
 
-  const handleInput = useCallback((value , moviesArray) => {
+  const handleInput = useCallback((value) => {
     let newArray = moviesArray.filter((ele) =>{
      return ele.title.toLowerCase().includes(value.toLowerCase())
     });
     setMoviesShow(newArray);
     handleChange(setFilter, '')
     handleChange(setOrder, '')
-  },[]);
+  },[moviesArray]);
 
-  const handleFilter = useCallback((value, moviesArray, year) => {
+  const handleFilter = useCallback((value , year=null) => {
     let newArray = [];
     handleChange(setFilter, value)
     switch (value) {
@@ -78,9 +77,9 @@ const Home = () => {
         newArray = [];
         break;
     }
-  },[]);
+  },[moviesArray]);
 
-  const handleOrder = useCallback((value, moviesArray, year) => {
+  const handleOrder = useCallback((value) => {
     let helperArray = [];
     let newArray = [];
     handleChange(setOrder, value)
@@ -119,7 +118,7 @@ const Home = () => {
         newArray = [];
         break;
     }
-  },[]);
+  },[moviesArray]);
 
   useEffect(() => getMovies(), []);
 
@@ -133,22 +132,19 @@ const Home = () => {
           text={texts.Ordenar}
           menu={orders}
           handleChange={handleOrder}
-          movies={moviesArray}
         />
         <Drops
           value={filter}
           text={texts.Filtrar}
           menu={filters}
-          year={year}
           handleChange={handleFilter}
-          movies={moviesArray}
         />
         </DropsContainer>
-        {filter === "Año" ? (
+        {filter === texts.Año ? (
           <InputAño
-           type="number"
+            type="number"
             placeholder="Año ej:2016"
-            onChange={(e) => handleChange(setYear, e.target.value)}
+            onChange={(e) => handleFilter(texts.Año, e.target.value)}
           />
         ) : null}
         <Input

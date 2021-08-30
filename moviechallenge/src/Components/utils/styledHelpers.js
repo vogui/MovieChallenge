@@ -6,5 +6,5 @@ export const colors = {
   black: "#000000",
   brown: "#421400",
   white: "#FFFFFF",
-  turquoise:"#A3715B"
+  turquoise:"#C8DDFF"
 };

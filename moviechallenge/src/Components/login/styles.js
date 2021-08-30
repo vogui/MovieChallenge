@@ -4,10 +4,11 @@ import { colors, mobile } from "../utils/styledHelpers"
 export const LoginContainer = styled.div`
   margin-top: 10%;
   width: 30%;
-  height: 40%;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: ${colors.white};
   opacity:0.9;
   border: 10px solid ${colors.black};

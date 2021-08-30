@@ -15,6 +15,7 @@ width:50%;
 height:50px;
 font-size:30px;
 border-radius:5px;
+padding-left:10px;
 @media (max-width: ${mobile}) {
     width:90%;
     margin-top:10px;
@@ -23,10 +24,16 @@ border-radius:5px;
   }
 `
 export const InputAño = styled.input`
-width:10%;
+width:15%;
 height:50px;
-font-size:20px;
+font-size:30px;
 border-radius:5px;
+padding-left:10px;
+@media (max-width: ${medio}) {
+  height:30px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
 @media (max-width: ${mobile}) {
     width:50%;
     margin-top:10px;
@@ -38,6 +45,10 @@ export const DropsContainer = styled.div`
 display:flex;
 align-items:center;
 ${props => props.filter === 'Año'?`width:30%;`:`width:50%;`}
+@media (max-width: ${medio}) {
+  width: 60%;
+  justify-content:center;
+}
 @media (max-width: ${mobile}) {
   width:100%;
   align-items:center
