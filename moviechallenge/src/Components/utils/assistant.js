@@ -1,5 +1,5 @@
 export const orders = ["Nombre", "Año"];
-export const filters = ["Año", "Pelicula", "Serie"];
+export const filters = ["Año", "Película", "Serie"];
 export const texts = {
     movie:'movie',
     series:'series',

@@ -10,7 +10,7 @@ const Home = () => {
   const [moviesArray, setMoviesArray] = useState([]);
   const [order, setOrder] = useState("");
   const [filter, setFilter] = useState("");
-  const [moviesShow, setMoviesShow] = useState([]);
+  const [moviesShow, setMoviesShow] = useState(null);
 
 
   const getMovies = () => {
@@ -44,6 +44,7 @@ const Home = () => {
 
   const handleFilter = useCallback((value , year=null) => {
     let newArray = [];
+
     handleChange(setFilter, value)
     switch (value) {
       case texts.Pelicula:
@@ -77,6 +78,7 @@ const Home = () => {
         newArray = [];
         break;
     }
+    
   },[moviesArray]);
 
   const handleOrder = useCallback((value) => {
@@ -143,16 +145,16 @@ const Home = () => {
         {filter === texts.Año ? (
           <InputAño
             type="number"
-            placeholder="Año ej:2016"
+            placeholder="2016"
             onChange={(e) => handleFilter(texts.Año, e.target.value)}
           />
         ) : null}
         <Input
-          placeholder="Que pelicula desea"
+          placeholder="¿Qué película desea?"
           onChange={(e) => handleInput(e.target.value, moviesArray)}
         />
       </FiltersContainer>
-      <Movies movies={moviesShow.length > 0 ? moviesShow : moviesArray} />
+      <Movies movies={moviesShow ? moviesShow : moviesArray} type={filter} />
     </MoviesContainer>
     <Footer/>
     </>

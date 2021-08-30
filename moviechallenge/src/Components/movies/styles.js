@@ -86,3 +86,24 @@ font-size:20px;
   font-size:10px;
 }
 `
+
+export const Control = styled.div`
+display:flex;
+align-items: center;
+justify-content:center;
+font-size:30px;
+${props => props.black ?`color:${colors.black};`:`color:${colors.red};`}
+background:${colors.white};
+border: 10px solid ${colors.black};
+border-radius: 10px;
+width:500px;
+opacity:0.9;
+height:150px;
+text-align:center;
+margin-top:50px;
+@media (max-width: ${mobile}) {
+  font-size:20px;
+  width:300px;
+  height:100px;
+}
+`

@@ -1,17 +1,20 @@
-import React from 'react'
-import CardMovies from './CardMovies'
-import{ MovieContainer } from './styles'
+import React from "react";
+import { texts } from "../utils/assistant";
+import CardMovies from "./CardMovies";
+import { MovieContainer, Control } from "./styles";
 
 const Movies = (props) => {
-    return (
-        <MovieContainer>{
-            props.notFound?<p>La pelicula no se encuentra</p>:
-            props.movies.map(movie =>(
-                 <CardMovies movie ={movie}/>
-            ))
-            }
-        </MovieContainer>
-    )
-}
+  return (
+    <MovieContainer>
+      {props.type === texts.Año && props.movies.length === 0 ? (
+        <Control black={true}> Por favor escriba el año de búsqueda </Control>
+      ) : props.movies.length === 0 ? (
+        <Control> Título no disponible </Control>
+      ) : (
+        props.movies.map((movie) => <CardMovies movie={movie} />)
+      )}
+    </MovieContainer>
+  );
+};
 
-export default Movies
+export default Movies;
