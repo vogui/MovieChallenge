@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { MoviesContainer, Input, FiltersContainer, InputAño, DropsContainer } from "./styles";
 import Movies from "../movies/Movies";
+import Footer from "../footer/Footer"
 import { entries } from "../utils/movies.json";
 import Drops from "../utils/drops";
 import { orders, filters, texts } from "../utils/assistant";
@@ -123,6 +124,7 @@ const Home = () => {
   useEffect(() => getMovies(), []);
 
   return (
+    <>
     <MoviesContainer>
       <FiltersContainer>
         <DropsContainer filter={filter}>
@@ -156,6 +158,8 @@ const Home = () => {
       </FiltersContainer>
       <Movies movies={moviesShow.length > 0 ? moviesShow : moviesArray} />
     </MoviesContainer>
+    <Footer/>
+    </>
   );
 };
 

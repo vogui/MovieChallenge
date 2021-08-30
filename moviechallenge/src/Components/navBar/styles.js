@@ -3,6 +3,7 @@ import { colors, mobile } from "../utils/styledHelpers";
 
 export const Nav = styled.nav`
   background: ${colors.black};
+  height:100px;
 `;
 
 export const ProfileContainer = styled.div`
@@ -27,7 +28,9 @@ justify-content: center;
 
 export const Email = styled.h2`
   color: ${colors.white};
+  margin-left:25%;
   @media (max-width: ${mobile}) {
+    margin-left:0;
     font-size:15px;
   }
 `;
@@ -51,5 +54,6 @@ width:80%;
 }
 `
 export const Img = styled.img`
-
+height:100px;
+margin-top:0;
 `

@@ -8,7 +8,7 @@ background:transparent;
 display:flex;
 flex-direction:column;
 align-items:center;
-margin-top:2.5%
+margin-top:2.5%;
 `
 export const Input = styled.input`
 width:50%;
