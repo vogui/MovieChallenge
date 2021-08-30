@@ -15,6 +15,12 @@ height:50px;
 font-size:30px;
 border-radius:5px;
 `
+export const InputAño = styled.input`
+width:5%;
+height:50px;
+font-size:20px;
+border-radius:5px;
+`
 export const FiltersContainer = styled.div`
 width:100%;
 display:flex;

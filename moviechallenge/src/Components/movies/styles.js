@@ -16,7 +16,9 @@ display:flex;
 justify-content:center;
 flex-wrap: wrap;
 height:100%;
+margin-top:2.5%;
 overflow:auto;
+
 `
 
 export const Img = styled.img`

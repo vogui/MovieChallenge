@@ -1,5 +1,5 @@
 import React from "react";
-import { Select } from "./styles";
+import { Select, Option } from "./styles";
 
 const Drops = (props) => {
     return(
@@ -7,20 +7,18 @@ const Drops = (props) => {
             value={props.value}
             onChange={(e) => {
                 const index = e.nativeEvent.target.selectedIndex;
-                console.log(index)
                 props.handleChange(props.sets, e.nativeEvent.target[index].text)
             }
             }
-            style={{ flex: "0 0 60px", width: "auto" }}
         >
             {props.menu.map(m => (
-                <option
+                <Option
                     key={m}
                     value={props.value}
                     selected={props.value === m}
                 >
                     {m}
-                </option>))
+                </Option>))
             }
         </Select>
     )

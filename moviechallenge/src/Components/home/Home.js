@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MoviesContainer, Input, FiltersContainer } from "./styles";
+import { MoviesContainer, Input, FiltersContainer, InputAño } from "./styles";
 import Movies from "../movies/Movies";
 import { entries } from "../utils/movies.json";
 import Drops from "../utils/drops";
@@ -11,8 +11,10 @@ const Home = () => {
   const [filter, setFilter] = useState("");
   const [name, setName] = useState("");
   const [moviesShow, setMoviesShow] = useState([]);
+  const [year, setYear] = useState([]);
+
   const getMovies = () => {
-    const res = new Promise((res) => setMoviesArray(entries)).catch(() =>
+    new Promise((res) => setMoviesArray(entries)).catch(() =>
       setMoviesArray("NotFound")
     );
   };
@@ -28,50 +30,79 @@ const Home = () => {
     }
     setVariable(variable);
   };
+
   const handleInput = (value) => {
     let newArray = moviesArray.filter((ele) =>
       ele.title.toLowerCase().includes(value.toLowerCase())
     );
-
     setMoviesShow(newArray);
   };
-//  const handleFilter = (value)=>{
-  //  let newArray = [];
- //   switch(value){
-   //   case "Pelicula":
-    //    moviesArray.map((ele) => {
-     //     newArray.push(ele)});
 
-   // }
-  //}
+  const handleFilter = (value) => {
+    let newArray = [];
+    switch (value) {
+      case "Pelicula":
+        moviesArray.map((movie) => {
+          if (movie.programType === "movie") {
+            return newArray.push(movie);
+          }
+        });
+        setMoviesShow(newArray);
+        break;
+      case "Serie":
+        moviesArray.map((movie) => {
+          if (movie.programType === "series") {
+            return newArray.push(movie);
+          }
+        });
+        setMoviesShow(newArray);
+      case "Año":
+        moviesArray.map((movie) => {
+          let y = parseInt(year);
+          if (movie.releaseYear === parseInt(year)) {
+            return newArray.push(movie);
+          }
+        });
+        setMoviesShow(newArray);
+        break;
+      default:
+        newArray = [];
+    }
+  };
 
   const handleOrder = (value) => {
     let helperArray = [];
     let newArray = [];
     switch (value) {
       case "Nombre":
-        moviesArray.map((ele) => helperArray.push(ele.title));
-        helperArray.sort().map(title => {
+        moviesArray.map((movie) => helperArray.push(movie.title));
+        helperArray.sort().map((title) => {
           moviesArray.map((movie) => {
             if (movie.title === title) {
-              newArray.push(movie)
+              return newArray.push(movie);
             }
           });
         });
-        setMoviesShow(newArray)
-        break
+        setMoviesShow(newArray);
+        break;
       case "Año":
-        moviesArray.map((ele) => helperArray.push(ele.releaseYear));
-        helperArray.sort(function(a, b){return a - b}).map(year => {
-          moviesArray.map((movie) => {
-            if (movie.releaseYear === year) {
-              if(!newArray.includes(movie)){
-                newArray.push(movie)
+        moviesArray.map((movie) => helperArray.push(movie.releaseYear));
+        helperArray
+          .sort(function (a, b) {
+            return a - b;
+          })
+          .map((year) => {
+            moviesArray.map((movie) => {
+              if (movie.releaseYear === year) {
+                if (!newArray.includes(movie)) {
+                  return newArray.push(movie);
+                }
               }
-            }
+            });
           });
-        });
-        setMoviesShow(newArray)
+        setMoviesShow(newArray);
+      default:
+        newArray = [];
     }
   };
 
@@ -82,11 +113,9 @@ const Home = () => {
   useEffect(() => {
     handleOrder(order);
   }, [order]);
-  //useEffect(() => {
-   // handleFilter(filter);
-  //}, [filter]);
-
-  console.log(moviesArray[0])
+  useEffect(() => {
+    handleFilter(filter);
+  }, [filter, year]);
 
   return (
     <MoviesContainer>
@@ -103,10 +132,16 @@ const Home = () => {
           handleChange={handleChange}
           sets={setFilter}
         />
+        {filter === "Año" ? (
+          <InputAño
+            placeholder="Año"
+            onChange={(e) => handleChange(setYear, e.target.value)}
+          />
+        ) : null}
         <Input
           placeholder="Que pelicula desea"
           onChange={(e) => handleChange(setName, e.target.value)}
-        ></Input>
+        />
       </FiltersContainer>
       <Movies movies={moviesShow.length > 0 ? moviesShow : moviesArray} />
     </MoviesContainer>
