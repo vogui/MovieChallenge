@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { colors } from "../helpers/styledHelpers";
+import { colors, mobile } from "../utils/styledHelpers"
 
-export const Div = styled.div`
+export const LoginContainer = styled.div`
   margin-top: 10%;
   width: 30%;
   height: 40%;
@@ -10,9 +10,14 @@ export const Div = styled.div`
   align-items: center;
   background: ${colors.white};
   opacity:0.9;
-  border: 10px groove;
+  border: 10px solid ${colors.black};
   border-radius: 10px;
+  @media (max-width: ${mobile}) {
+    width: 80%;
+  }
 `;
 export const H1 = styled.h1`
-  color: #00000;
+  color: ${colors.black};
+  font-size:200%;
+  text-align: center;
 `;

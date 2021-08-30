@@ -1,17 +1,19 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import Logout from "../auth0/LogoutButton";
-import { Nav, ProfileContainer, Title, TitleContainer, Email } from "./styles";
+import MultiButton from '../utils/button'
+import { Nav, ProfileContainer, Title, TitleContainer, Email, InfoContainer, Img } from "./styles";
 
 const NavBar = (props) => {
-  const { user } = useAuth0();
+  const { user, logout } = useAuth0();
   return (
     <Nav>
       {props.login ? (
         <ProfileContainer>
-          <img src={user.picture} alt={user.name} />
+          <Img src={user.picture} alt={user.name} />
+          <InfoContainer>
           <Email>{user.name}</Email>
-          <Logout />
+          <MultiButton onClick={logout} type={'logout'} text={'Logout'}/>
+          </InfoContainer>
         </ProfileContainer>
       ) : (
         <TitleContainer>

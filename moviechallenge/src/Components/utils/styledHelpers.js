@@ -1,9 +1,10 @@
 
-export const mobile = "600px";
+export const mobile = "750px";
+export const medio = "1200px";
 
 export const colors = {
   black: "#000000",
   brown: "#421400",
   white: "#FFFFFF",
-  brown2:"#A3715B"
+  turquoise:"#A3715B"
 };

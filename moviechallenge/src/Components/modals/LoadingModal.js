@@ -1,7 +1,7 @@
 import React from "react";
 import { Div  } from "./styles";
 import {Puff} from 'react-loading-icons'
-import { colors } from "../helpers/styledHelpers";
+import { colors } from "../utils/styledHelpers"
 
  const LoadingModal = () => {
   return (
