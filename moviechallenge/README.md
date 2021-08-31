@@ -9,7 +9,7 @@ Puedes ordenar las peliculas por orden alfabetico o año (de menor a mayor)
 Puedes filtrar por año, peliculas o series.
 
 Test: 
-No se hace test, habia visto un poco de como se manejaba, pero no me habia tenido que aplicarlo. Trate de aprender y hace lo poco que puede antes de la finalización del 3 día de entrega.
+No se hace test, habia visto un poco de como se manejaba, pero no habia tenido que aplicarlo. Trate de aprender y hace lo poco que puede antes de la finalización del 3 día de entrega.
 
 Una vez descargado el repositorio y situado en la carpeta raíz del proyecto correr en la terminalÑ
 
