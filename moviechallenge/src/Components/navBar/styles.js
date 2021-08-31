@@ -24,6 +24,8 @@ export const TitleContainer = styled.div`
 display:flex;
 align-items: center;
 justify-content: center;
+height:100px;
+text-align:center;
 `;
 
 export const Email = styled.h2`

@@ -15,7 +15,7 @@ const Home = () => {
 
   const getMovies = () => {
     new Promise((res) => setMoviesArray(entries)).catch(() =>
-      setMoviesArray("NotFound")
+      setMoviesArray('')
     );
   };
 
@@ -47,7 +47,7 @@ const Home = () => {
 
     handleChange(setFilter, value)
     switch (value) {
-      case texts.Pelicula:
+      case texts.Movie:
         moviesArray.map((movie) => {
           if (movie.programType === texts.movie) {
             return newArray.push(movie);
@@ -65,7 +65,7 @@ const Home = () => {
         });
         setMoviesShow(newArray);
         break;
-      case texts.Año:
+      case texts.Year:
         moviesArray.map((movie) => {
           if (movie.releaseYear === parseInt(year)) {
             return newArray.push(movie);
@@ -86,7 +86,7 @@ const Home = () => {
     let newArray = [];
     handleChange(setOrder, value)
     switch (value) {
-      case texts.Nombre:
+      case texts.Name:
         moviesArray.map((movie) => { return helperArray.push(movie.title)});
         helperArray.sort().map((title) => {
          return moviesArray.map((movie) => {
@@ -98,7 +98,7 @@ const Home = () => {
         });
         setMoviesShow(newArray);
         break;
-      case texts.Año:
+      case texts.Year:
         moviesArray.map((movie) => {return helperArray.push(movie.releaseYear)});
         helperArray
           .sort(function (a, b) {
@@ -131,26 +131,26 @@ const Home = () => {
         <DropsContainer filter={filter}>
         <Drops
           value={order}
-          text={texts.Ordenar}
+          text={texts.Order}
           menu={orders}
           handleChange={handleOrder}
         />
         <Drops
           value={filter}
-          text={texts.Filtrar}
+          text={texts.Filter}
           menu={filters}
           handleChange={handleFilter}
         />
         </DropsContainer>
-        {filter === texts.Año ? (
+        {filter === texts.Year ? (
           <InputAño
             type="number"
             placeholder="2016"
-            onChange={(e) => handleFilter(texts.Año, e.target.value)}
+            onChange={(e) => handleFilter(texts.Year, e.target.value)}
           />
         ) : null}
         <Input
-          placeholder="¿Qué película desea?"
+          placeholder={texts.WhatMovie}
           onChange={(e) => handleInput(e.target.value, moviesArray)}
         />
       </FiltersContainer>

@@ -3,13 +3,14 @@ import { texts } from "../utils/assistant";
 import CardMovies from "./CardMovies";
 import { MovieContainer, Control } from "./styles";
 
+
 const Movies = (props) => {
   return (
     <MovieContainer>
       {props.type === texts.Año && props.movies.length === 0 ? (
-        <Control black={true}> Por favor escriba el año de búsqueda </Control>
+        <Control black={true}>{texts.SearchingForYear}</Control>
       ) : props.movies.length === 0 ? (
-        <Control> Título no disponible </Control>
+        <Control>{texts.NoFoundTitle}</Control>
       ) : (
         props.movies.map((movie) => <CardMovies movie={movie} />)
       )}

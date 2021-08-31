@@ -4,7 +4,7 @@ import Home from "../home/Home";
 import Login from "../login/Login";
 import LoadingModal from "../modals/LoadingModal";
 import { useAuth0 } from "@auth0/auth0-react";
-import {Div} from './styles'
+import {Div, Container} from './styles'
 
 function App() {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -16,14 +16,14 @@ function App() {
       ) : (
         <>
           <NavBar login={isAuthenticated} />
-          <div style={{display:"flex",alignItems:'center',justifyContent:'center'}}>
+          <Container>
           <Switch>
             <Route exact path="/">
               {isAuthenticated ? <Redirect to="/home" /> : <Login />}
             </Route>
             <Route path="/home" component={Home} />
           </Switch>
-          </div>
+          </Container>
         </>
       )}
     </Div>

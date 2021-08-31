@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, Img, P, Description } from "./styles";
+
 const CardMovies = (props) => {
   let img = props.movie.images['Poster Art'].url
   const [description, setDescription]=useState(false)
